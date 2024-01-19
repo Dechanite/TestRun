@@ -157,8 +157,8 @@ void AEndlessRunnerCharacter::ArrowKeys(const FInputActionValue& AxisValue)
 {
 	// input is a Vector2D
 	FVector2D MovementVector = AxisValue.Get<FVector2D>();
-	//int PlayerRot = PlayerRot + AxisValue[1];
-	PlayerTestRot ++;
+	PlayerTestRot = PlayerTestRot + AxisValue[1];
+	//PlayerTestRot ++;
 	if (GEngine)
 	{
 
@@ -170,10 +170,10 @@ void AEndlessRunnerCharacter::ArrowKeys(const FInputActionValue& AxisValue)
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
 		
-		FRotator NewRotation = GetActorRotation() + FRotator(0.0f, 90.0f * AxisValue[1], 0.0f);
-		
-		SetActorRotation(NewRotation);
-		
+		FRotator NewRotation = GetActorRotation() + FRotator(0.0f, 90.0f * PlayerTestRot, 0.0f);
+		SetActorRotation(FRotator(0.0f, 90.0f * PlayerTestRot, 0.0f));
+		//SetActorRotation(NewRotation);
+		CameraBoom->SetRelativeRotation(FRotator(-20.0f, 90.0f * PlayerTestRot, 0.0f));
 		
 		
 		GetController()->SetControlRotation(GetActorRotation());
