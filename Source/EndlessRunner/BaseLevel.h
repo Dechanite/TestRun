@@ -35,6 +35,9 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Triggers")
 		UArrowComponent* SpawnRotation;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Triggers")
+		UArrowComponent* CoinSpawn;
+
 
 public:
 
@@ -42,4 +45,5 @@ public:
 	UBoxComponent* GetTrigger();
 	UBoxComponent* GetSpawnLocation();
 	UArrowComponent* GetSpawnRotation();
+	UArrowComponent* GetCoinSpawn();
 };

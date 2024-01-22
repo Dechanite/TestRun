@@ -6,6 +6,7 @@
 #include "BaseLevel.h"
 #include "Engine.h"
 #include "Components/BoxComponent.h"
+#include "Coin.h"
 #include "EndlessRunnerCharacter.h"
 #include <chrono>
 #include <thread>
@@ -41,7 +42,9 @@ void ASpawnFloor::SpawnLevel(bool IsFirst)
 {
 	SpawnLocation = FVector(0.0f, 0.0f, 0.0f);
 	SpawnRotation = FRotator(0, 90, 0);
+	//CoinSpawn = FVector(0.0f, 0.0f, 0.0f);
 
+	
 
 	if (!IsFirst)
 	{
@@ -50,6 +53,8 @@ void ASpawnFloor::SpawnLevel(bool IsFirst)
 		SpawnLocation = LastLevel->GetSpawnLocation()->GetComponentTransform().GetTranslation();
 		SpawnRotation = LastLevel->GetSpawnRotation()->GetComponentRotation();
 		Transform = LastLevel->GetSpawnRotation()->GetComponentTransform();
+		//CoinSpawn = LastLevel->GetCoinSpawn()->GetComponentTransform().GetTranslation();
+
 		
 	}
 
@@ -58,6 +63,7 @@ void ASpawnFloor::SpawnLevel(bool IsFirst)
 	if (RandomLevel == 1 || RandomLevel == 2 || RandomLevel == 3 || RandomLevel == 4)
 	{
 		NewLevel = GetWorld()->SpawnActor<ABaseLevel>(FloorStraight, SpawnLocation, SpawnRotation, SpawnInfo);
+		//GetWorld()->SpawnActor<ACoin>(Coin, CoinSpawn, SpawnRotation, SpawnInfo);
 		if (GEngine)
 		{
 			CurrentStraight += 1;

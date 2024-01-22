@@ -7,6 +7,7 @@
 #include "SpawnFloor.generated.h"
 
 class ABaseLevel;
+class ACoin;
 
 UCLASS()
 class ENDLESSRUNNER_API ASpawnFloor : public AActor
@@ -56,6 +57,9 @@ protected:
 		TSubclassOf<ABaseLevel> FloorUp;
 
 	UPROPERTY(EditAnywhere)
+		TSubclassOf<ACoin> Coin;
+
+	UPROPERTY(EditAnywhere)
 		int TileSpawnAmount;
 
 
@@ -77,6 +81,7 @@ public:
 	int32 CurrentStraight;
 	int32 RandomFloor = 1;
 	FVector SpawnLocation = FVector();
+	FVector CoinSpawn = FVector();
 	FRotator SpawnRotation = FRotator();
 	FTransform Transform = FTransform();
 	FActorSpawnParameters SpawnInfo = FActorSpawnParameters();

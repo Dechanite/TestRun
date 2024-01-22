@@ -44,4 +44,9 @@ UArrowComponent* ABaseLevel::GetSpawnRotation()
 	return SpawnRotation;
 }
 
+UArrowComponent* ABaseLevel::GetCoinSpawn()
+{
+	return CoinSpawn;
+}
+
 

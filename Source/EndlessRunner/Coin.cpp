@@ -17,7 +17,8 @@ ACoin::ACoin()
 void ACoin::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	//Coin = GetWorld()->SpawnActor<ACoin>
+	//CollisionSphere->OnComponentBeginOverlap.AddDynamic(this, &ALigthSwitchCodeOnly::OnOverlapBegin);
 }
 
 // Called every frame
@@ -31,4 +32,7 @@ void ACoin::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* Other
 {
 	OverlappedComponent->GetOwner()->SetLifeSpan(4);
 }
+
+
+
 
